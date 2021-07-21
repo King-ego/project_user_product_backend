@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "typeorm":"ts-node-dev ./node_modules/typeorm/cli.js",
-    "build":"tsc",
-    "dev:server":"ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "build": "tsc",
+    "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "license": "MIT",
   "dependencies": {
