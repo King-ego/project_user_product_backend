@@ -4,7 +4,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "495715diego",
-  "database": "shopProducts",
+  "database": "shopProducts1",
   "entities": ["./src/models/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {

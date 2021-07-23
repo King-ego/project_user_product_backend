@@ -2,9 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import Users from './user';
 
 @Entity('products')
 class Products {
@@ -12,10 +16,14 @@ class Products {
   id: string;
 
   @Column()
-  provider_id: string;
+  name: string;
 
   @Column()
-  name: string;
+  provider_id: string;
+
+  @ManyToOne(() => Users)
+  @JoinColumn({ name: 'provider_id' })
+  user: Users;
 
   @Column()
   UPC: number;
@@ -30,7 +38,7 @@ class Products {
   composition: string;
 
   @Column()
-  amounts: number;
+  amount: number;
 
   @Column()
   size: number;

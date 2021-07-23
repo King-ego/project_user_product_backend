@@ -28,7 +28,7 @@ export class createProduct1626899738949 implements MigrationInterface {
           },
           {
             name: 'UPC',
-            type: 'integer',
+            type: 'bigint',
           },
           {
             name: 'category',
@@ -36,7 +36,7 @@ export class createProduct1626899738949 implements MigrationInterface {
           },
           {
             name: 'price',
-            type: 'integer',
+            type: 'float',
           },
           {
             name: 'composition',
@@ -66,18 +66,18 @@ export class createProduct1626899738949 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'products',
       new TableForeignKey({
-        name: 'productsProvider',
+        name: 'foreingkey',
         columnNames: ['provider_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
-        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       })
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('products', 'productsProvider');
+    await queryRunner.dropForeignKey('products', 'foreingkey');
     await queryRunner.dropTable('products');
   }
 }
