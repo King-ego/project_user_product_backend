@@ -1,4 +1,7 @@
 import { getCustomRepository } from 'typeorm';
+import { validate } from 'uuid';
+
+import AppError from '../Error/AppError';
 
 import ProductsRepository from '../repositories/ProductsRepository';
 import Products from '../models/products';
@@ -27,10 +30,14 @@ class CreateProductsService {
   }: RequestProps): Promise<Products> {
     const productsRepository = getCustomRepository(ProductsRepository);
 
+    if (!validate(provider_id)) {
+      throw new AppError('Id is invalid');
+    }
+
     const findProductInSameName = await productsRepository.getProducts(name);
 
     if (findProductInSameName) {
-      throw new Error('This appointment is already booked');
+      throw new AppError('This products is already booked', 403);
     }
 
     const product = productsRepository.create({
