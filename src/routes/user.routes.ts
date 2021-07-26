@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import ensureAutenticated from '../middlewares/ensureAuthenticated';
 
 import CreateUserService from '../services/CreateUserService';
 

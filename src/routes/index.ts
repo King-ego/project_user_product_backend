@@ -6,8 +6,8 @@ import SessionRoute from './session.routes';
 
 const routes = Router();
 
-routes.use('/', UserRoutes);
-routes.use('/', ProductRoutes);
-routes.use('/', SessionRoute);
+routes.use('/users', UserRoutes);
+routes.use('/products', ProductRoutes);
+routes.use('/sessions', SessionRoute);
 
 export default routes;

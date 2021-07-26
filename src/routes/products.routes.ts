@@ -11,11 +11,15 @@ import uploadConfig from '../config/upload';
 import UploadImagesProductTwo from '../services/UploadImagesProductTwo';
 import UploadImagesProductThree from '../services/UploadImagesProductThree';
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+
 const ProductRoutes = Router();
 
 const upload = multer(uploadConfig);
 
-ProductRoutes.get('/products', async (request, response) => {
+ProductRoutes.use(ensureAuthenticated);
+
+ProductRoutes.get('/', async (request, response) => {
   try {
     const productsRepository = getCustomRepository(ProductsRepository);
 
@@ -31,7 +35,7 @@ ProductRoutes.get('/products', async (request, response) => {
   }
 });
 
-ProductRoutes.post('/products', async (request, response) => {
+ProductRoutes.post('/', async (request, response) => {
   const { provider_id, name, UPC, category, price, composition, amount, size } =
     request.body;
 
@@ -53,7 +57,7 @@ ProductRoutes.post('/products', async (request, response) => {
   }
 });
 
-ProductRoutes.patch('/products', async (request, response) => {
+ProductRoutes.patch('/', async (request, response) => {
   const { id, name, UPC, amount, category, composition, price, size } =
     request.body;
 
@@ -75,7 +79,7 @@ ProductRoutes.patch('/products', async (request, response) => {
   }
 });
 
-ProductRoutes.delete('/products', async (request, response) => {
+ProductRoutes.delete('/', async (request, response) => {
   const { id } = request.body;
   try {
     const productDelete = new DeleteProductService();
@@ -89,7 +93,7 @@ ProductRoutes.delete('/products', async (request, response) => {
 });
 
 ProductRoutes.patch(
-  '/products/image_one/:id',
+  '/image_one/:id',
   upload.single('imagem'),
   async (request, response) => {
     const id = request.params;
@@ -108,7 +112,7 @@ ProductRoutes.patch(
   }
 );
 ProductRoutes.patch(
-  '/products/image_two/:id',
+  '/image_two/:id',
   upload.single('imagem'),
   async (request, response) => {
     const id = request.params;
@@ -127,7 +131,7 @@ ProductRoutes.patch(
   }
 );
 ProductRoutes.patch(
-  '/products/image_three/:id',
+  '/image_three/:id',
   upload.single('imagem'),
   async (request, response) => {
     const id = request.params;

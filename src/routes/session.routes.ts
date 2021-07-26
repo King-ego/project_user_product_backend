@@ -18,6 +18,7 @@ const SessionRoute = Router();
 
 SessionRoute.post('/', async (request, response) => {
   const { email, password } = request.body;
+  
   try {
     const AuthtenticatedUser = new AuthenticatedUserService();
 
