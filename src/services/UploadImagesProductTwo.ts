@@ -24,21 +24,6 @@ class UploadImagesProductTwo {
       throw new AppError('Only authenticated users can change imagem', 401);
     }
 
-    // if (product.imagem_one) {
-    //   const productImagenOneFilePath = path.join(
-    //     uploadConfig.directory,
-    //     product.imagem_one
-    //   );
-
-    //   const productImagenOneFileExists = await fs.promises.stat(
-    //     productImagenOneFilePath
-    //   );
-
-    //   if (productImagenOneFileExists) {
-    //     await fs.promises.unlink(productImagenOneFilePath);
-    //   }
-    // }
-
     if (product.imagem_two) {
       const productImagenTwoFilePath = path.join(
         uploadConfig.directory,
@@ -54,23 +39,7 @@ class UploadImagesProductTwo {
       }
     }
 
-    // if (product.imagem_three) {
-    //   const productImagenThreeFilePath = path.join(
-    //     uploadConfig.directory,
-    //     product.imagem_three
-    //   );
-
-    //   const productImagenThreeFileExists = await fs.promises.stat(
-    //     productImagenThreeFilePath
-    //   );
-
-    //   if (productImagenThreeFileExists) {
-    //     await fs.promises.unlink(productImagenThreeFilePath);
-    //   }
-    // }
-
     product.imagem_two = `/tmp/${filename}`;
-    // product.imagem_three = filename_three;
 
     await productRepository.save(product);
 

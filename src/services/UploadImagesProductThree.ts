@@ -24,36 +24,6 @@ class UploadImagesProductThree {
       throw new AppError('Only authenticated users can change imagem', 401);
     }
 
-    // if (product.imagem_one) {
-    //   const productImagenOneFilePath = path.join(
-    //     uploadConfig.directory,
-    //     product.imagem_one
-    //   );
-
-    //   const productImagenOneFileExists = await fs.promises.stat(
-    //     productImagenOneFilePath
-    //   );
-
-    //   if (productImagenOneFileExists) {
-    //     await fs.promises.unlink(productImagenOneFilePath);
-    //   }
-    // }
-
-    // if (product.imagem_two) {
-    //   const productImagenTwoFilePath = path.join(
-    //     uploadConfig.directory,
-    //     product.imagem_two
-    //   );
-
-    //   const productImagentwoFileExits = await fs.promises.stat(
-    //     productImagenTwoFilePath
-    //   );
-
-    //   if (productImagentwoFileExits) {
-    //     await fs.promises.unlink(productImagenTwoFilePath);
-    //   }
-    // }
-
     if (product.imagem_three) {
       const productImagenThreeFilePath = path.join(
         uploadConfig.directory,
