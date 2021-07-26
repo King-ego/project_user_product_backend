@@ -43,6 +43,15 @@ class Products {
   @Column()
   size: number;
 
+  @Column()
+  imagem_one: string;
+
+  @Column()
+  imagem_two: string;
+
+  @Column()
+  imagem_three: string;
+
   @CreateDateColumn()
   created_at: Date;
 

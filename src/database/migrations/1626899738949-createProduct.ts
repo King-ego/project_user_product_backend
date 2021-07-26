@@ -51,6 +51,21 @@ export class createProduct1626899738949 implements MigrationInterface {
             type: 'integer',
           },
           {
+            name: 'imagem_one',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'imagem_two',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'imagem_three',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

@@ -1,2 +1,4 @@
 node_modules
 a.pdf
+tmp/*
+!tmp/.gitkeep
