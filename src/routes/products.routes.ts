@@ -36,8 +36,10 @@ ProductRoutes.get('/', async (request, response) => {
 });
 
 ProductRoutes.post('/', async (request, response) => {
-  const { provider_id, name, UPC, category, price, composition, amount, size } =
+  const { name, UPC, category, price, composition, amount, size } =
     request.body;
+
+  const provider_id = request.user.id;
 
   try {
     const createProduct = new CreateProductsService();
